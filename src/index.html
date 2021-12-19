@@ -6,9 +6,47 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="root">
-      <h1>Hello world!</h1>
+    <div class="tab">
+      <button id='London-button' class="tablinks">Cipher</button>
+      <button id='Paris-button' class="tablinks">Decipher</button>
     </div>
+        <div id="London" class="tabcontent">
+      <h3>Write to Cipher</h3>
+      <div class="slidecontainer">
+        <input type="range" min="-26" max="26" value="3" class="slider" id="myRange"><span id="number"></span>
+      </div>
+      <div id="Cipher" class="Caesar">
+        <textarea name="UserInput" id="inp"></textarea>
+        <textarea name="UserOutput" id="outp"></textarea>
+ 
+      </div>
+    </div>
+    
+    <div id="Paris" class="tabcontent">
+      <h3>Write to Decipher</h3>
+      <div id="decipher" class="Caesar">
+        <textarea name="UserInput" id="inpDC"></textarea>
+        <p id="outpDC"></p>
+        <hr>
+        <p id='help'></p>
+    </div>
+    
+    <!-- <script>
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    </script> -->
+
     <script src="index.js" type="module"></script>
   </body>
 </html>
