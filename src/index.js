@@ -1,6 +1,6 @@
 import cipher from './cipher.js';
 
-console.log(cipher);
+// console.log(cipher);
 
 function openCity(evt, cityName) {
     var i, tabcontent, tablinks;
@@ -26,15 +26,29 @@ output.innerHTML = slider.value;
 slider.oninput = function() {
     output.innerHTML = slider.value;
 }
+// Cipher, slider >=0 run function forward, else run backward
+// decipher, slider >=0 run backward else run forward
 
 document.getElementById('inp').oninput = function() {
   let offset = (parseInt(slider.value));
   let str = document.getElementById('inp').value;
-  cipher.encode(str, offset);
+  if (offset >= 0) {
+    // let returnCipher = cipher.encode(str, offset);
+    document.getElementById('outp').innerHTML = cipher.encode(str, offset);
+  }
+  else {
+    // let retunCipher = cipher.decode(str, offset);
+    document.getElementById('outp').innerHTML = cipher.decode(str, offset);
+  }
 };
 
 document.getElementById('inpDC').oninput = function() {
   let offset = (parseInt(slider.value));
   let str = document.getElementById('inpDC').value;
-  cipher.decode(str, offset);
+  if (offset >= 0) {
+    document.getElementById('outpDC').innerHTML = cipher.decode(str, offset);
+  }
+  else {
+    document.getElementById('outpDC').innerHTML = cipher.encode(str, offset);;
+  }
 };

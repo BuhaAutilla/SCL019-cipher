@@ -24,35 +24,37 @@ const cipher = {
     }
       
   }
-  document.getElementById('outp').innerHTML = out;
+  
+  return(out);
 },
 
   decode:(str, offset) => {
-      let out = '';
+      let outDC = '';
       for (let i=0; i<str.length; i++){
         let encodeDC = str.charCodeAt(i);
         
         if (encodeDC >= 65 && encodeDC <= 90){
           encodeDC = (encodeDC - 90 - offset) % 26 + 90;
-          out += String.fromCharCode(encodeDC);
+          outDC += String.fromCharCode(encodeDC);
         
         }
         else if (encodeDC >= 97 && encodeDC <= 122){
           encodeDC = (encodeDC - 122 - offset) % 26 + 122;
-          out += String.fromCharCode(encodeDC);
+          outDC += String.fromCharCode(encodeDC);
         }
         
         else if (encodeDC >= 48 && encodeDC <= 57){
           encodeDC = (encodeDC - 57 - offset) % 10 + 57;
-          out += String.fromCharCode(encodeDC);
+          outDC += String.fromCharCode(encodeDC);
         }
 
         else {
-          out += String.fromCharCode(encodeDC);
+          outDC += String.fromCharCode(encodeDC);
         }
           
       }
-      document.getElementById('outpDC').innerHTML = out;
+
+      return(outDC);
     },
 
   };
@@ -61,5 +63,4 @@ export default cipher;
 
 
 
-// for toggle Cipher, slider >=0 run function forward, else run backward
-// for toggle decipher, slider >=0 run backward else run forward
+
