@@ -32,23 +32,22 @@ slider.oninput = function() {
 document.getElementById('inp').oninput = function() {
   let offset = (parseInt(slider.value));
   let str = document.getElementById('inp').value;
-  if (offset >= 0) {
-    // let returnCipher = cipher.encode(str, offset);
-    document.getElementById('outp').innerHTML = cipher.encode(str, offset);
+
+  if (offset < 0) {
+    document.getElementById('outp').innerHTML = cipher.decode(Math.abs(offset), str);
   }
   else {
-    // let retunCipher = cipher.decode(str, offset);
-    document.getElementById('outp').innerHTML = cipher.decode(str, offset);
+    document.getElementById('outp').innerHTML = cipher.encode(offset, str);
   }
 };
 
 document.getElementById('inpDC').oninput = function() {
   let offset = (parseInt(slider.value));
   let str = document.getElementById('inpDC').value;
-  if (offset >= 0) {
-    document.getElementById('outpDC').innerHTML = cipher.decode(str, offset);
+  if (offset < 0) {
+    document.getElementById('outpDC').innerHTML = cipher.encode(Math.abs(offset), str);
   }
   else {
-    document.getElementById('outpDC').innerHTML = cipher.encode(str, offset);;
+    document.getElementById('outpDC').innerHTML = cipher.decode(offset, str);
   }
 };

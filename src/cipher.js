@@ -1,5 +1,5 @@
 const cipher = {
- encode:(str, offset) => {
+ encode:(offset, str) => {
   let out = '';
   for (let i=0; i<str.length; i++){
     let encode = str.charCodeAt(i);
@@ -28,7 +28,7 @@ const cipher = {
   return(out);
 },
 
-  decode:(str, offset) => {
+  decode:(offset, str) => {
       let outDC = '';
       for (let i=0; i<str.length; i++){
         let encodeDC = str.charCodeAt(i);
@@ -53,7 +53,6 @@ const cipher = {
         }
           
       }
-
       return(outDC);
     },
 

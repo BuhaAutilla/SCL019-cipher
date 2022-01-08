@@ -1,5 +1,9 @@
 body {font-family: Arial;}
 
+body {
+  background-image: url("images/GFTemporada2.jpg");
+}
+
 span {
   color: rgb(0, 147, 206);
   font-size: 20px;
